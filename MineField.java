@@ -39,7 +39,7 @@ public class MineField {
     }
 
     private void layMines() {
-        Random rand = new Random(777);
+        Random rand = new Random();
         int randomColumn;
         int randomRow;
         boolean placementFailed;

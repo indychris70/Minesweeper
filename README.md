@@ -19,3 +19,8 @@ Link: https://hyperskill.org/projects/77/stages/426/implement
 
 Print minefield of any size, with the spaces that contain mines distinguishable from spaces that do not contain mines by use of different characters.
 
+## Stage #2: Flexible mines
+Link: https://hyperskill.org/projects/77/stages/427/implement
+
+- Generate a random configuration of mines each time the program runs.
+- Get input from player for the number of mines to add to the field.
