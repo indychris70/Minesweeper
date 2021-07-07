@@ -18,12 +18,26 @@ public class MineField {
     }
 
     public void print() {
+        StringBuilder columnHeader = new StringBuilder(" |");
+        StringBuilder border = new StringBuilder("-|");
+        for (int h = 0; h < numberOfColumns; h++) {
+            columnHeader.append(h + 1);
+            border.append("-");
+        }
+        columnHeader.append("|");
+        border.append("|");
+        System.out.println(columnHeader.toString());
+        System.out.println(border.toString());
+
         for (int i = 0; i < numberOfColumns; i++) {
+            System.out.print(i + 1 + "|");
             for (int j = 0; j < numberOfRows; j++) {
                 System.out.print(field[i][j].getSymbol());
             }
-            System.out.println();
+            System.out.println("|");
         }
+
+        System.out.println(border.toString());
     }
 
     private void initializeField() {
