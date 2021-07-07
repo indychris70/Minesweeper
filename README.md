@@ -29,3 +29,16 @@ Link: https://hyperskill.org/projects/77/stages/427/implement
 Link: https://hyperskill.org/projects/77/stages/428/implement
 
 - Show the number of mines around empty cells when the field is printed.
+
+### Stage #4: Prepare for battle
+Link: https://hyperskill.org/projects/77/stages/429/implement
+
+- When the board is printed it should include column numbers, row numbers, and a border around the field.
+- After initializing the field, all the numbers are shown to the player, but not the positions of the mines.
+- Player is prompted to enter coordinates to flag where they think mines are located.
+  - This toggles the flag (set flag if not already flagged, unflag if flagged).
+  - Player cannot flag a coordinate that shows a number, since those are guaranteed to not have a mine.
+- Updated field is printed when the player successfully flag/unflags a coordinate.
+- Repeat these steps until the game is finished.
+  - The game is finished when the player marks all mines correctly without marking empty cells.
+  

@@ -40,6 +40,41 @@ public class MineField {
         System.out.println(border.toString());
     }
 
+    public boolean coordinateCanBeFlagged(int columnIndex, int rowIndex) {
+        Coordinate coord = this.field[columnIndex][rowIndex];
+        return coord.getSymbol() == '.' || coord.getSymbol() == '*';
+    }
+
+    public void flagCoordinate(int columnIndex, int rowIndex) {
+        Coordinate coord = this.field[columnIndex][rowIndex];
+        coord.toggleFlag();
+    }
+
+    public boolean gameOver() {
+        for (int i = 0; i < this.numberOfColumns; i++) {
+            for (int j = 0; j < this.numberOfRows; j++) {
+                boolean emptyCellFlagged = field[i][j].isFlagged() && field[i][j].isEmpty();
+                boolean mineNotFlagged = !field[i][j].isFlagged() && !field[i][j].isEmpty();
+                if (emptyCellFlagged || mineNotFlagged) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean coordinateInField(int columnIndex, int rowIndex) {
+        boolean validColumn = false;
+        boolean validRow = false;
+        if (columnIndex >= 0 && columnIndex < this.numberOfColumns) {
+            validColumn = true;
+        }
+        if (rowIndex >= 0 && rowIndex < this.numberOfRows) {
+            validRow = true;
+        }
+        return validColumn && validRow;
+    }
+
     private void initializeField() {
         this.field = new Coordinate[numberOfColumns][numberOfRows];
         for (int i = 0; i < numberOfColumns; i++) {
@@ -93,17 +128,5 @@ public class MineField {
             }
         }
         return numberOfAdjacentMines == 0 ? '.' : (char) (numberOfAdjacentMines + '0');
-    }
-
-    private boolean coordinateInField(int columnIndex, int rowIndex) {
-        boolean validColumn = false;
-        boolean validRow = false;
-        if (columnIndex >= 0 && columnIndex < this.numberOfColumns) {
-            validColumn = true;
-        }
-        if (rowIndex >= 0 && rowIndex < this.numberOfRows) {
-            validRow = true;
-        }
-        return validColumn && validRow;
     }
 }
